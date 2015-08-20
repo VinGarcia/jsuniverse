@@ -15,6 +15,11 @@ exports.Universe = {
   'update' : function() {
     for(var i in this.triggers)
       this.triggers[i].apply(this)
+  },
+
+  'start' : function() {
+    function update(){ Universe.update() }
+    setInterval(update, 500)
   }
 }
 
