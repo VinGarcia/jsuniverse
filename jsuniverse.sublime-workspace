@@ -1,0 +1,797 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Cir",
+				"circleColideWith"
+			],
+			[
+				"colidePo",
+				"colidePolygonCircle"
+			],
+			[
+				"colideCir",
+				"colideCircleLine"
+			],
+			[
+				"uni",
+				"toUnitVector"
+			],
+			[
+				"closes",
+				"pointClosestTo"
+			],
+			[
+				"auxC",
+				"auxColMod"
+			],
+			[
+				"vert",
+				"vertexColision2"
+			],
+			[
+				"distance",
+				"distanceFrom"
+			],
+			[
+				"vec",
+				"vecLine1"
+			],
+			[
+				"vecL",
+				"vecLine0"
+			],
+			[
+				"or",
+				"ortogonalUnitVec"
+			],
+			[
+				"colDia",
+				"colDistance2"
+			],
+			[
+				"start",
+				"start_point"
+			],
+			[
+				"if",
+				"If"
+			],
+			[
+				"X",
+				"x"
+			],
+			[
+				"lfsIn",
+				"lfsInterface32"
+			],
+			[
+				"data",
+				"dataFiles"
+			],
+			[
+				"grid",
+				"grid_scroll"
+			],
+			[
+				"size_",
+				"size_hint_y"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"numFiles",
+				"numFilesCount"
+			],
+			[
+				"expi",
+				"expireDate"
+			],
+			[
+				"magi",
+				"magicWord"
+			],
+			[
+				"lfs_",
+				"lfs_fwrite_sector"
+			],
+			[
+				"call",
+				"callback_data"
+			],
+			[
+				"lis",
+				"listEnd"
+			],
+			[
+				"end",
+				"listEnd"
+			],
+			[
+				"NOT",
+				"NOT_ARM_CFLAGS"
+			],
+			[
+				"cipher",
+				"ciphertext"
+			],
+			[
+				"fOri",
+				"fOrigName"
+			],
+			[
+				"fromLittleF",
+				"fromLittleFileHeader"
+			],
+			[
+				"dri",
+				"driverAddr"
+			],
+			[
+				"extra",
+				"extractName"
+			],
+			[
+				"NAME",
+				"NAME_SIZE-1"
+			],
+			[
+				"num",
+				"numFiles"
+			],
+			[
+				"N_",
+				"N_SEC_OF"
+			],
+			[
+				"By",
+				"byteToNSec"
+			],
+			[
+				"pos",
+				"filePos"
+			],
+			[
+				"wbfs_try_open",
+				"wbfs_try_open_partition"
+			],
+			[
+				"byte",
+				"byteToNSec"
+			],
+			[
+				"mall",
+				"lfs_malloc"
+			],
+			[
+				"fh",
+				"tFileHeader"
+			],
+			[
+				"try_open",
+				"wbfs_try_open_partition"
+			],
+			[
+				"undef",
+				"undef_father"
+			],
+			[
+				"parameters",
+				"parametersToRCode"
+			],
+			[
+				"rScript",
+				"rScriptWorkingDirectory"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "game.js",
+			"settings":
+			{
+				"buffer_size": 21761,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "engine.js",
+			"settings":
+			{
+				"buffer_size": 1566,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "universe.js",
+			"settings":
+			{
+				"buffer_size": 415,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/Class.js",
+			"settings":
+			{
+				"buffer_size": 4060,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/make_run.sublime-build",
+	"command_palette":
+	{
+		"height": 316.0,
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":W",
+				":w - Save"
+			],
+			[
+				":",
+				":w - Save"
+			],
+			[
+				":pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				"set syntax: python",
+				"Set Syntax: Python"
+			],
+			[
+				":py",
+				"Set Syntax: Python"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				":e",
+				":$ - EOF"
+			],
+			[
+				":xml",
+				"Set Syntax: XML"
+			],
+			[
+				":c",
+				"Set Syntax: C"
+			],
+			[
+				":ww",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"c",
+				"Code Folding: Unfold All"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 256.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/fox.config/fox/serios/luar/lfs/LFS.sublime-project",
+		"/mnt/d/Fox/serios/bymoto/planejamento.txt",
+		"/home/fox.config/.cache/.fr-YF3FQJ/whatsapp-desktop/PKGBUILD",
+		"/D/Fox/serios/jogos/usage_example.js",
+		"/D/Fox/serios/jogos/object.js",
+		"/C/Users/Vinicius/output.txt",
+		"/L/.data/index.pt.json",
+		"/C/Users/Vinicius/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Vinicius/AppData/Roaming/Sublime Text 2/Packages/Vintage/escapeOnce.py",
+		"/C/Program Files/Sublime Text 2/PackageSetup.py",
+		"/C/Program Files/Sublime Text 2/sublime_plugin.py",
+		"/C/Program Files/Sublime Text 2/Pristine Packages/Vintage.sublime-package",
+		"/K/.data/lfs_interface32.py",
+		"/D/Fox/serios/luar/lfs/codigo/gui/lfs_interface.py",
+		"/D/Fox/serios/luar/lfs/codigo/gui/gui_package/.data/lfs_gui.py",
+		"/D/Fox/serios/luar/lfs/codigo/gui/test.py",
+		"/D/Fox/serios/luar/lfs/codigo/gui/lfs_gui.kv",
+		"/D/Fox/serios/luar/lfs/codigo/gui/kivy/kivy/doc/sources/tutorials/firstwidget.rst",
+		"/D/Fox/serios/luar/lfs/codigo/gui/test.kv",
+		"/D/Fox/serios/luar/lfs/codigo/gui/lfs_gui.py",
+		"/D/Fox/serios/luar/lfs/codigo/gui/grid.py",
+		"/D/Fox/Desktop/doc-emergencia.txt",
+		"/K/Makefile",
+		"/D/Fox/serios/luar/lfs_old2/gui/kivy/README.txt",
+		"/D/Fox/serios/ufmg/mestrado/proposta-inscricao.txt",
+		"/D/Fox/serios/luar/lfsWin/codigo/c_code/temp.iso",
+		"/C/Users/Vinicius/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Vinicius/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/lfscp.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/tools/lfs_tools.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/tools/lfs_tools.h",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/tools/tools.h",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/tools/tools.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/wbfs/libwbfs/libwbfs_win32.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/wbfs/libwbfs/libwbfs_unix.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/wbfs/libwbfs/libwbfs.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/wbfs/libwbfs/libwbfs.h",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/lfsinit.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lfs/lfs_t_functions/lfs_filesystem_win32.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lfs/lfs_t_functions/lfs_filesystem_unix.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lfs/partitions.h",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lfs/partitions.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/vlc/vlcInterface.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lfs/lfs_filesystem_win.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lista/lista.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lista/lista.h",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lfs/lfs_crypto.c",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/libs/lfs/lfs_crypto.h",
+		"/mnt/d/Fox/serios/luar/lfsWin/codigo/c_code/I",
+		"/home/garcia/workspace/meningite/WfMeningite-2014-07-17-IDsAlterados.xpdl",
+		"/mnt/d/Fox/serios/luar/meningite/WfMeningite",
+		"/mnt/d/Fox/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/lfsinit.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/lfsinit",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/Makefile",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/wbfs/libwbfs/wiidisc.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/wbfs/libwbfs/wiidisc.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/wbfs/libwbfs/libwbfs_unix.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/wbfs/libwbfs_os.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/wbfs/libwbfs/libwbfs.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/wbfs/libwbfs/libwbfs.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/lfs/filesystem.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libs/lfs/filesystem.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/lista/lista.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/lista/lista.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/tools.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/tools.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libwbfs/wiidisc.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libwbfs/wiidisc.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libwbfs/libwbfs_unix.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libwbfs_os.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libwbfs/libwbfs.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/libwbfs/libwbfs.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/c_code/wbfs.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/tools.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/tools.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/libwbfs/wiidisc.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/libwbfs/wiidisc.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/libwbfs/libwbfs_unix.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/libwbfs_os.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/libwbfs/libwbfs.h",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/libwbfs/libwbfs.c",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/Makefile",
+		"/mnt/d/Fox/serios/luar/lfs/codigo/wbfs.c",
+		"/mnt/d/Fox/serios/luar/LFS/AviDown_AnimeNSK_High_School_DxD_New_01.mp4.temp",
+		"/mnt/d/Fox/serios/luar/LFS/codigo/libwbfs/rijndael.c",
+		"/mnt/d/Fox/serios/luar/LFS/codigo/libwbfs/libwbfs_win32.c",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/readme.txt",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/tools.h",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/tools.c",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/libwbfs/wiidisc.h",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/libwbfs/wiidisc.c",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/libwbfs/libwbfs.h",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/libwbfs/libwbfs.c",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/wbfs_os.h",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/Makefile",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/wbfs.c",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/wiidisc.h",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/wiidisc.c",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/libwbfs.h",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/codigo/libwbfs.c",
+		"/mnt/luar/garcia/workspace/LFS - Luar File System/exemplos_com_videos_em_python/vplayer.py",
+		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/.talkin.sublime-project",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/citotoxidade-INMETRO/artigo-CTTX/r-no-flux-2014-04-14-vingarcia.tex",
+		"/mnt/d/Fox/temp/temp.R",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/citotoxidade-INMETRO/artigo-CTTX/r-no-flux-2014-04-14-vingarcia.txt",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/template_luar.tex",
+		"/mnt/d/Fox/serios/luar/svn/flux20/src/trunk/Flux2/src/br/ufmg/dcc/luar/flux/service/rserve/RCall2.java",
+		"/mnt/d/Fox/serios/luar/svn/flux20/src/trunk/Flux2/src/br/ufmg/dcc/luar/flux/service/rserve/RStat2.java",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/citotoxidade-INMETRO/citotoxidade/scriptR/graficoR.R",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/Trabalho OJB/Relatorios OJB/Relatorio atividades 2013-2 para o OJB/LaTeX do Relatorio/relatorio.tex",
+		"/mnt/d/Fox/temp/fabrica_de_slides/template_luar.tex",
+		"/mnt/d/Fox/temp/graficoR.R",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/flux/fluxdev/fluxdev/doc/r_no_flux/documentacao_r.tex",
+		"/home/fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/resenha-desonra.tex",
+		"/mnt/d/Fox/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/mnt/d/Fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/resenha-desonra.tex",
+		"/home/fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/abnt-classe-doc.tex",
+		"/mnt/d/Fox/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/flux/fluxdev/fluxdev/doc/r_no_flux/Makefile",
+		"/mnt/d/Fox/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/mnt/d/Fox/.config/sublime-text-2/Packages/User/make_run.sublime-build",
+		"/home/garcia/workspace/citotoxidade-INMETRO/citotoxidade/scriptR/graficoR.R",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/Makefile",
+		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/sftp",
+		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/vocabulario.talk",
+		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/padrao.cpp",
+		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/Makefile"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"D:\\Fox\\serios\\luar\\lfsWin\\codigo\\c_code",
+			"D:\\Fox\\serios\\luar\\lfsWin\\codigo\\c_code\\libs"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"obj",
+			"minCol",
+			"colideCir",
+			"colideCircle",
+			"hide",
+			"define",
+			"Properties",
+			"defineProperties",
+			"apply",
+			"prop",
+			"_line",
+			"line",
+			"this.pixels",
+			"line",
+			"_line",
+			"V",
+			"r",
+			"colideCircle",
+			"colideLine",
+			"coli",
+			"line",
+			"rVec",
+			"ortogonal",
+			"dist",
+			"line",
+			"vertex",
+			"colideCir",
+			"para",
+			"isAntiP",
+			"subs",
+			"console.log",
+			"pixels",
+			"M",
+			"p",
+			"V",
+			"vec",
+			"L",
+			"vec",
+			"line",
+			"Universe.update",
+			"pixels",
+			"console",
+			"generate",
+			"Draw",
+			"body",
+			"this.body",
+			"nPoints",
+			"   }",
+			"this",
+			"Space",
+			"w",
+			"Universe.Space",
+			"Space",
+			"	",
+			"  'triggers' : [],\n  'add' : function(trigger) {\n    this.triggers.push(trigger)\n    return this\n  },\n\n  'update' : function() {\n    for(var i in this.triggers)\n      this.triggers[i].apply(this)\n  }",
+			"aux",
+			"popenAndCall",
+			"cancelButton",
+			"ref",
+			"popup.dismiss",
+			"insert_next",
+			"startInsertion",
+			"total_videos",
+			"id",
+			"file",
+			"files",
+			"files_to_insert",
+			"files",
+			"print",
+			"parseFiles_rec",
+			"fileList",
+			"base",
+			"Inserting",
+			"data",
+			"insert",
+			"_GB",
+			"_expireDate",
+			"expire",
+			"MAX",
+			"getSize",
+			"remove",
+			"true",
+			"dataFiles",
+			"lfs_interface",
+			"lfsInterface",
+			"update",
+			"data",
+			"self.dataFile",
+			"dataFile",
+			"sulfix",
+			"self.dataFile",
+			"fileList",
+			"self.fileList",
+			"fileList",
+			"self.dataFile",
+			"dataFile",
+			"self.datafile",
+			"self",
+			"file",
+			"a",
+			"bin",
+			"lfs",
+			"grid",
+			"videos",
+			"lab",
+			"desc",
+			"window",
+			"scroll",
+			"#Svn",
+			"window",
+			"=",
+			"window",
+			"Button",
+			"parent",
+			"20",
+			"passou",
+			"lfs_write",
+			"Formatting",
+			"insertHeaderEntry",
+			"callback",
+			"fopen",
+			"sec_siz",
+			"ferror",
+			"pvi",
+			"ps",
+			"report",
+			"lfs_report",
+			"listFiles"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"  ",
+			"lfs_t",
+			"lfs_error",
+			"lfs_t",
+			"lfs",
+			"  ",
+			"p",
+			"lfs_read",
+			"lfs_write",
+			"lfs_t",
+			"lfs_tr",
+			"lfs_try_open_partition",
+			"SEC_SIZE",
+			"getVar"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "game.js",
+					"settings":
+					{
+						"buffer_size": 21761,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5417,
+								5417
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3248.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "engine.js",
+					"settings":
+					{
+						"buffer_size": 1566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								728,
+								728
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 112.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "universe.js",
+					"settings":
+					{
+						"buffer_size": 415,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								308,
+								308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "jstools/Class.js",
+					"settings":
+					{
+						"buffer_size": 4060,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2302,
+								2302
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 253.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true
+}
