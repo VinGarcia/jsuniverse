@@ -1,8 +1,28 @@
 require('./body.js')
+
+// For the math support
 require('../sylvester.js')
 
 Colide = Body.extend(new function(){
 
+  /*
+   * @name - circleColideWith
+   *
+   * @desc - Check if `this` colides with `obj` when moved through the vec `mov`.
+   *         This function assumes that `this` is an instance of Body.Circle
+   *
+   * @params:
+   *   - mov: a list with 2 numbers representing a vector - [#, #]
+   *   - obj: an object that should be instance of the `Colide` class
+   *          If it is not, the function returns false.
+   *
+   * @return:
+   *   - a movement vector if there was a colision
+   *     this vector if summed with the current `this` position should 
+   *     provide the position of `this` when the colision happend.
+   *
+   *   - false otherwise
+   */
   function circleColideWith(mov, obj) {
 
     if(!obj.instanceof(Colide)) return false
@@ -21,6 +41,24 @@ Colide = Body.extend(new function(){
     }
   }
 
+  /*
+   * @name - polygonColideWith
+   *
+   * @desc - Check if this colides with obj when moved by through the vec `mov`.
+   *         This function assumes that `this` is an instance of Body.Polygon
+   *
+   * @params:
+   *   - mov: a list with 2 numbers representing a vector - [#, #]
+   *   - obj: an object that should be instance of the `Colide` class
+   *          If it is not, the function returns false.
+   *
+   * @return:
+   *   - a movement vector if there was a colision
+   *     this vector if summed with the current `this` position should 
+   *     provide the position of `this` when the colision happend.
+   *
+   *   - false otherwise
+   */
   function polygonColideWith(mov, obj) {
     var body = this.Body()
 
@@ -75,8 +113,30 @@ Colide = Body.extend(new function(){
     }
   }
 
-  // Calculate the colision of each point on points
-  // with the edges of the a polygon.
+  /*
+   * @name - pointsOnPolygon
+   *
+   * @desc - Check for colisions between each point on `points`
+   *         with the edges of the polygon described by `body`.
+   *         assuming they are moving thorugh the vec `mov`
+   * 
+   * @params:
+   *   - points: a list of tuples of numbers, e.g.: [#, #]
+   *             where each tuple represent a 2d vector.
+   *
+   *   - body: also a list of tuples of numbers, e.g.: [#, #]
+   *           where each tuple represent an edge of a polygonal body.
+   *
+   *   - mov: a tuple of numbers, e.g.: [#, #]
+   *          where the tuple represent the movement of the points
+   *
+   * @return:
+   *   - A movement vector if any of the points colide
+   *     this vector if summed with the current point position should 
+   *     provide the colision location.
+   *
+   *   - False otherwise
+   */
   function pointsOnPolygon(points, body, mov) {
     var colision=false, colMod
 
@@ -112,7 +172,24 @@ Colide = Body.extend(new function(){
     }
   }
 
-  // This code assume circ is moving and pol is not.
+  /*
+   * @name - colidePolygonCircle
+   * 
+   * @desc - Check a circle moving through `mov`
+   *         colides with a polygon holding still.
+   * 
+   * @params:
+   *   - circ: an object instanceof Body.Circle
+   *   - pol: an object instanceof Body.Polygon
+   *   - mov: a tuple of numbers representing a vector
+   *
+   * @return:
+   *   - A movement vector if there was a colision
+   *     this vector if summed with the current `this` position should 
+   *     provide the `this` at the moment of the colision.
+   *
+   *   - false otherwise
+   */
   function colidePolygonCircle(circ, pol, mov) {
     if(!pol.instanceof(Body.Polygon) || !circ.instanceof(Body.Circle))
       throw "bad arguments!"
