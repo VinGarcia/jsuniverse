@@ -230,6 +230,15 @@ Colide = Body.extend(new function(){
     }
   }
 
+  /*
+   * @name - init
+   *
+   * @desc - set this as an instance of the Colide effect.
+   *
+   * @params:
+   *   - body: a list of tuples of numbers, e.g. [[#,#], ...]
+   *           where each tuple represent a vertex of a polygon
+   */
   this.init = function(body) {
     // Initialize this class:
     if(body) this.super(body)
@@ -240,6 +249,26 @@ Colide = Body.extend(new function(){
       this.colideWith = polygonColideWith
   }
 
+  /*
+   * @name - colidePolygon
+   * 
+   * @desc - check if `polygon1` colides with `polygon2`
+   *         if moving through the vector `mov`
+   * 
+   * @params:
+   *   - pol1, and pol2: instances of Body.Polygon
+   *
+   *   - mov: a tuple numbers, e.g.: [#, #]
+   *          representing the movement vector of `pol1`
+   *          in relation to `pol2`.
+   *
+   * @return:
+   *   - A movement vector if there was a colision
+   *     this vector if summed with the current position of `pol1`
+   *     should provide its position at the moment of the colision.
+   *
+   *   - false otherwise
+   */
   this.colidePolygon = function(pol1, pol2, mov) {
     // With only two args set pol1 = this
     if(arguments.lentgh==2) {
@@ -289,6 +318,32 @@ Colide = Body.extend(new function(){
     }
   }
 
+  /*
+   * @name - colideCircleLine
+   * 
+   * @desc - check if the circle with center on `p` and radius `r`
+   *         colides with the line segment described by `line`
+   * 
+   * @params:
+   *   - p: the center of the circle
+   *        it is given by a tuple of numbers, e.g.: [#, #]
+   *
+   *   - mov: a tuple numbers, e.g.: [#, #]
+   *          representing the movement vector of the circle
+   *          in relation to the line segment.
+   *    
+   *   - line: a pair of tuples of numbers, e.g.: [[#, #], [#, #]]
+   *           represeting the start and end of a line segment.
+   *
+   *   - r: the radius of the circle with center on `p`.
+   *
+   * @return:
+   *   - A movement vector if there was a colision
+   *     this vector if summed with the current position of the circle
+   *     should provide its position at the moment of the colision.
+   *
+   *   - false otherwise
+   */
   this.colideCircleLine = function(p, mov, line, r) {
     try {
       // Check for errors:
@@ -375,14 +430,29 @@ Colide = Body.extend(new function(){
     }
   }
 
-  /* Check if moving `p` in the direction of `vec`
-   * will colide with the Line `line`.
-   * @args: p - [x,y]
-   *        vec - [dx,dy]
-   *        line - [[x1,y1],[x2,y2]]
+  /*
+   * @name - colideLine
+   * 
+   * @desc - check if the point `p` moving through the vector `mov`
+   *         colides with the line segment described by `line`
+   * 
+   * @params:
+   *   - p: the location of the point
+   *        it is given by a tuple of numbers, e.g.: [#, #]
    *
-   * @returns: The movement vector that moves p
-   *           to the colision location.
+   *   - mov: a tuple numbers, e.g.: [#, #]
+   *          representing the movement vector of the point
+   *          in relation to the line segment.
+   *    
+   *   - line: a pair of tuples of numbers, e.g.: [[#, #], [#, #]]
+   *           represeting the start and end of a line segment.
+   *
+   * @return:
+   *   - A movement vector if there was a colision
+   *     this vector if summed with the current position of the point
+   *     should provide its position at the moment of the colision.
+   *
+   *   - false otherwise
    */
   this.colideLine = function(p, mov, line) {
 
@@ -455,15 +525,29 @@ Colide = Body.extend(new function(){
   /*
    * @name: colideCircle
    *
-   * @desc: Calculates if a circle with center on `P1` will
-   *        colide with the point `P2` with movement `V`
+   * @desc: Calculates if a circle with center on `center` 
+   *        and radius `radius` will colide with the `point`
+   *        by moving through the movement vector `mov`.
    *
-   * @args: P1, P2 and V are instanceof Vector with 3 dimensions
-   *        M is a Line with base on P1 and direction V.
-   *        r is a number.
+   * @params:
+   *   - center: an instance of Vector
+   *             describes the center of the circle.
    *
-   * @returns: The movement vector of the center of the circle
-   *           to the point where the colision happens or false.
+   *   - radius: a number describing the radius of the circle.
+   *
+   *   - point: an instance of Vector
+   *            describes the location of the point.
+   *
+   *   - mov: an instance of Vector
+   *          describes the movement vector of the circle
+   *          in relation to the `point`
+   *
+   * @return:
+   *   - A movement vector if there was a colision
+   *     this vector if summed with the current position of the circle
+   *     should provide its position at the moment of the colision.
+   *
+   *   - false otherwise
    */
   this.colideCircle = function(center, radius, mov, point) {
     // Check for errors:
