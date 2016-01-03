@@ -21,7 +21,8 @@ Body = Space.extend(new function() {
   // Note: x#,y# coordinates are relative to the center of the object.
   //       thus negative values are allowed.
   this.init = function(body) {
-    if(!body) this.pixels = this.generatePixels()
+    // If no body was defined make it a circle with r=0
+    if(!body) body = 0
 
     if(typeof body == 'number') Body.Circle.call(this, body)
     else Body.Polygon.call(this, body)
@@ -137,7 +138,6 @@ Body.Polygon = Body.extend({
 
     // The last point must be same as the first (to form a polygon):
     points.push(body[0])
-    // console.log('points:', points)
 
     var last = body[0]
 
