@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"run",
+				"run_init"
+			],
+			[
+				"insta",
+				"instanceOf"
+			],
+			[
+				"colide",
+				"colideOnCircle"
+			],
+			[
+				"circle",
+				"circleColideWith"
+			],
+			[
 				"Cir",
 				"circleColideWith"
 			],
@@ -192,10 +208,18 @@
 	"buffers":
 	[
 		{
-			"file": "game.js",
+			"file": "effects/colide.js",
 			"settings":
 			{
-				"buffer_size": 21761,
+				"buffer_size": 7550,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/colide/physics.js",
+			"settings":
+			{
+				"buffer_size": 12019,
 				"line_ending": "Unix"
 			}
 		},
@@ -203,7 +227,15 @@
 			"file": "engine.js",
 			"settings":
 			{
-				"buffer_size": 1566,
+				"buffer_size": 2086,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/body.js",
+			"settings":
+			{
+				"buffer_size": 4644,
 				"line_ending": "Unix"
 			}
 		},
@@ -211,15 +243,42 @@
 			"file": "universe.js",
 			"settings":
 			{
-				"buffer_size": 415,
+				"buffer_size": 407,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "/* Simple JavaScript Inheritance\n * By John Resig http://ejohn.org/\n * Edited by Vinícius Garcia: https://github.com/vingarcia/\n * MIT Licensed.\n */\n// Inspired by base2 and Prototype\n(function(){\n  var initializing = false, fnTest = /xyz/.test(function(){xyz;}) ? /\\bsuper\\b/ : /.*/;\n\n  // Require deep copy method:\n  var copy = require('./copy.js').copy\n  var instanceOf = require('./copy.js').instanceOf\n  var id_count=0\n \n  // The base Class implementation (does nothing)\n  this.Class = function(){\n    hide(this, 'apply', apply)\n    hide(this, 'instanceof', instanceOf)\n  }\n\n  // Used to hide special attributes:\n  function hide(obj, name, value) {\n    var options = {}\n    \n    options.value = value !== undefined ? value : obj[name]\n\n    options.enumerable = false\n\n    Object.defineProperty(obj, name, options)\n  }\n\n  function apply(func, args) {\n    func.apply(this, [].splice.call(arguments, 1));\n    return this;\n  }\n\n  // Create a new Class that inherits from this class\n  Class.extend = function(prop) {\n\n    if(!prop || typeof prop !== 'object') prop = {}\n\n    var _super = this.prototype;\n    var constructor = this\n   \n    // Instantiate a base class (but only create the instance,\n    // don't run the init constructor)\n    initializing = true;\n    var prototype = new this();\n    initializing = false;\n\n    // Copy the functions to the prototype:\n    for (var name in prop) {\n      if(name == 'init') continue;\n      if( typeof prop[name] == 'function' ) {\n        // Check if we're overwriting an existing function\n        prototype[name] = typeof _super[name] == \"function\" &&\n          fnTest.test(prop[name]) ?\n\n          // Wrap this.super around the function call\n          wrapSuper(_super[name], prop[name]) :\n\n          // If not a function, or if it does not call super:\n          prop[name]\n\n      } else if(name[0] == '$')\n        // '$' denotes $hared or $tatic variables:\n        prototype[name.substr(1)] = prop[name]\n    }\n\n    var initSuper = fnTest.test(prop.init)\n\n    if(prop.init) {\n      // Wrap the the init function:\n      prototype.init = (function(_super, init) {\n\n        // Add the id number to wrapInit:\n        hide(wrapInit, '__id__', id_count)\n\n        return wrapInit;\n\n        function wrapInit() {\n\n          var id = arguments.callee.__id__\n\n          // If already initialized with this function:\n          if( this.__init_map__[id].init ) {\n            _super.apply(this)\n            return\n          } else\n            this.__init_map__[id].init = true\n\n          // Call default super if not called by the user:\n          if(!initSuper && _super)\n            _super.apply(this)\n\n          // * * * * * Memorize current functions * * * * *//\n          var _superFuncs = {}\n          for (var name in this) {\n            if( typeof this[name] == 'function' )\n              _superFuncs[name] = this[name]\n          }\n\n          var bkp = this.super\n          this.super = _super\n          console.log('super: ', _super)\n\n          init.apply(this, arguments);\n\n          this.super = bkp\n\n          // * * * * * Wrap priviledged functions with `super` * * * * *\n\n          // For each of the saved functions:\n          for(var name in _superFuncs) {\n            // If a priviledged function overwritten the old function:\n            if( _superFuncs[name] != this[name] && fnTest.test(this[name]) )\n              this[name] = wrapSuper( _superFuncs[name], this[name] )\n          }\n        }\n      })(_super.init, prop.init);\n    }\n\n    var run_init = true\n\n    // Add an unique id to this class constructor:\n    hide(Class, '__id__', id_count++)\n\n    // The class constructor\n    function Class() {\n      // Only construct if not initializing:\n      if ( initializing ) return\n\n      // Add the init_map to keep record\n      // of already initialized constructors:\n      if(!this.__init_map__)\n        hide(this, '__init_map__', {})\n\n      // Hide this super in this class instance, so the user won't see it.\n      hide(this, 'super')\n\n      // * * * * * Start parents construction: * * * * *\n\n      // Call the parent constructors:\n      if(run_init == true) {\n        run_init = false\n\n        constructor.apply(this)\n\n        run_init = true\n      } else {\n        constructor.apply(this)\n      }\n\n      var id = arguments.callee.__id__\n\n      // If this constructor is already initialized\n      if( this.__init_map__[id] ) return\n\n      // else add it to the initialization map:\n      else this.__init_map__[id] = {'const':true, 'init':false}\n\n      // * * * * * Start construction: * * * * *\n\n      // Copy the non-static properties from the prototype:\n      for (var name in prop) {\n        // Don't add functions and $hared variables:\n        if( typeof prop[name] != 'function' && name[0] != '$')\n          // If name is not defined:\n          if(!this[name])\n            this[name] = copy(prop[name])\n      }\n\n      // In case of multiple inheritance,\n      // copy this function's prototype\n      // to `this` prototype chain:\n      if(!this.instanceof(arguments.callee)) {\n        var proto = copy(arguments.callee.prototype)\n        var this_proto = Object.getPrototypeOf(this)\n        Object.setPrototypeOf(proto, this_proto)\n        Object.setPrototypeOf(this, proto)\n      }\n\n      // The rest of the construction is done in the init method:\n      if( run_init && prototype.init )\n        prototype.init.apply(this, arguments);\n    }\n   \n    // Populate our constructed prototype object\n    Class.prototype = prototype;\n   \n    // Enforce the constructor to be what we expect\n    Class.prototype.constructor = Class;\n \n    // And make this class extendable\n    Class.extend = arguments.callee;\n\n    return Class;\n  };\n\n  function wrapSuper(_super, func) {\n    return function() {\n\n      var bkp = _super\n      this.super = _super\n      \n      var ret = func.apply(this, arguments)\n\n      this.super = bkp\n\n      return ret;\n    }\n  }\n})();\n\n\n",
 			"file": "jstools/Class.js",
+			"file_size": 6187,
+			"file_write_time": 1452632049000000,
 			"settings":
 			{
-				"buffer_size": 4060,
+				"buffer_size": 5911,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/tools.js",
+			"settings":
+			{
+				"buffer_size": 5834,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/colide/sylvester.js",
+			"settings":
+			{
+				"buffer_size": 252,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/space.js",
+			"settings":
+			{
+				"buffer_size": 3625,
 				"line_ending": "Unix"
 			}
 		}
@@ -227,7 +286,7 @@
 	"build_system": "Packages/User/make_run.sublime-build",
 	"command_palette":
 	{
-		"height": 316.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -241,6 +300,10 @@
 			[
 				":",
 				":w - Save"
+			],
+			[
+				":G",
+				"Git: Gitk"
 			],
 			[
 				":pyth",
@@ -308,6 +371,22 @@
 	},
 	"file_history":
 	[
+		"/mnt/d/Fox/serios/jogos/effects/time.js",
+		"/mnt/d/Fox/serios/jogos/sylvester.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/colide.js",
+		"/mnt/d/Fox/serios/jogos/jstools/copy.js",
+		"/mnt/d/Fox/serios/jogos/game.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/colision.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/physics.js",
+		"/mnt/d/Fox/serios/jogos/jstools/Class.js",
+		"/mnt/d/Fox/serios/jogos/effects/colision.js",
+		"/mnt/d/Fox/serios/jogos/effects/body.js",
+		"/mnt/d/Fox/serios/jogos/effects/space.js",
+		"/mnt/d/Fox/serios/jogos/effects/ai.js",
+		"/mnt/d/Fox/serios/jogos/effects/alive.js",
+		"/mnt/d/Fox/serios/jogos/effects/effect.js",
+		"/mnt/d/Fox/serios/jogos/alive.js",
 		"/home/fox.config/fox/serios/luar/lfs/LFS.sublime-project",
 		"/mnt/d/Fox/serios/bymoto/planejamento.txt",
 		"/home/fox.config/.cache/.fr-YF3FQJ/whatsapp-desktop/PKGBUILD",
@@ -419,23 +498,7 @@
 		"/mnt/d/Fox/serios/luar/svn/flux20/src/trunk/Flux2/src/br/ufmg/dcc/luar/flux/service/rserve/RStat2.java",
 		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/citotoxidade-INMETRO/citotoxidade/scriptR/graficoR.R",
 		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/Trabalho OJB/Relatorios OJB/Relatorio atividades 2013-2 para o OJB/LaTeX do Relatorio/relatorio.tex",
-		"/mnt/d/Fox/temp/fabrica_de_slides/template_luar.tex",
-		"/mnt/d/Fox/temp/graficoR.R",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/flux/fluxdev/fluxdev/doc/r_no_flux/documentacao_r.tex",
-		"/home/fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/resenha-desonra.tex",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/mnt/d/Fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/resenha-desonra.tex",
-		"/home/fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/abnt-classe-doc.tex",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/flux/fluxdev/fluxdev/doc/r_no_flux/Makefile",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/User/make_run.sublime-build",
-		"/home/garcia/workspace/citotoxidade-INMETRO/citotoxidade/scriptR/graficoR.R",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/Makefile",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/sftp",
-		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/vocabulario.talk",
-		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/padrao.cpp",
-		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/Makefile"
+		"/mnt/d/Fox/temp/fabrica_de_slides/template_luar.tex"
 	],
 	"find":
 	{
@@ -455,134 +518,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"obj",
-			"minCol",
-			"colideCir",
-			"colideCircle",
-			"hide",
-			"define",
-			"Properties",
-			"defineProperties",
-			"apply",
+			"initSuper",
+			"_super",
+			"_super.ini",
+			"id_count",
+			"prototype",
+			"_super",
 			"prop",
-			"_line",
-			"line",
-			"this.pixels",
-			"line",
-			"_line",
-			"V",
-			"r",
-			"colideCircle",
-			"colideLine",
-			"coli",
-			"line",
-			"rVec",
-			"ortogonal",
-			"dist",
-			"line",
-			"vertex",
-			"colideCir",
-			"para",
-			"isAntiP",
-			"subs",
+			"this.super",
 			"console.log",
-			"pixels",
-			"M",
-			"p",
-			"V",
-			"vec",
-			"L",
-			"vec",
-			"line",
-			"Universe.update",
-			"pixels",
-			"console",
-			"generate",
-			"Draw",
-			"body",
-			"this.body",
-			"nPoints",
-			"   }",
-			"this",
-			"Space",
-			"w",
-			"Universe.Space",
-			"Space",
-			"	",
-			"  'triggers' : [],\n  'add' : function(trigger) {\n    this.triggers.push(trigger)\n    return this\n  },\n\n  'update' : function() {\n    for(var i in this.triggers)\n      this.triggers[i].apply(this)\n  }",
-			"aux",
-			"popenAndCall",
-			"cancelButton",
-			"ref",
-			"popup.dismiss",
-			"insert_next",
-			"startInsertion",
-			"total_videos",
-			"id",
-			"file",
-			"files",
-			"files_to_insert",
-			"files",
-			"print",
-			"parseFiles_rec",
-			"fileList",
-			"base",
-			"Inserting",
-			"data",
-			"insert",
-			"_GB",
-			"_expireDate",
-			"expire",
-			"MAX",
-			"getSize",
-			"remove",
+			"argumen",
+			"Memorize current functions",
+			"_super",
+			"init",
+			"prop.init",
+			"hide",
+			"copy",
+			"hide",
+			"Object",
+			"hide",
+			"colide :",
+			"colide_circ_on_any",
+			"colidePoly",
 			"true",
-			"dataFiles",
-			"lfs_interface",
-			"lfsInterface",
-			"update",
-			"data",
-			"self.dataFile",
-			"dataFile",
-			"sulfix",
-			"self.dataFile",
-			"fileList",
-			"self.fileList",
-			"fileList",
-			"self.dataFile",
-			"dataFile",
-			"self.datafile",
-			"self",
-			"file",
-			"a",
-			"bin",
-			"lfs",
-			"grid",
-			"videos",
-			"lab",
-			"desc",
-			"window",
-			"scroll",
-			"#Svn",
-			"window",
-			"=",
-			"window",
-			"Button",
-			"parent",
-			"20",
-			"passou",
-			"lfs_write",
-			"Formatting",
-			"insertHeaderEntry",
-			"callback",
-			"fopen",
-			"sec_siz",
-			"ferror",
-			"pvi",
-			"ps",
-			"report",
-			"lfs_report",
-			"listFiles"
+			"invertMo",
+			"invertM",
+			"pol",
+			"Polygon",
+			"return colision.vector",
+			"typeof mov[0] !=",
+			"edge",
+			"edge.",
+			"type",
+			"_colideCircleLine",
+			"physics",
+			"ide.pos",
+			"return",
+			"edge",
+			"_colideLine",
+			"points",
+			"- colideLine",
+			"pointsOnPolygon",
+			"pointsOnPolygon(",
+			"colideCxAny",
+			"colidePxAny",
+			"pointsOnPolygon(",
+			"pointsOnPolygon",
+			"circleColideWith",
+			"polygonColideWith",
+			"Class",
+			"loca",
+			"hide",
+			"P",
+			"colision",
+			"TESTE",
+			"return",
+			"proj",
+			"colision",
+			"col",
+			"location",
+			"TESTE",
+			"_colideCircle",
+			"colideCircle",
+			"normal",
+			"r",
+			"r2",
+			"c2",
+			"r1",
+			"c1",
+			"point",
+			"radius",
+			"center",
+			"Colision",
+			"normal",
+			"Colision",
+			"normal",
+			"callee",
+			"Colision",
+			"colision",
+			"this",
+			"this.",
+			"this",
+			"- colidePolygon",
+			"colidePolygon",
+			"_colidePolygon",
+			"_colidePolygonCircle",
+			"- colideCircleLine",
+			"colidePolygon(",
+			"- colideLine",
+			"colideCircleLine",
+			"- colidePolygon",
+			"colidePolygonCircle",
+			"pointsOnPolygon",
+			"circleColideWith",
+			"Pixels",
+			"generatePixels",
+			"prop",
+			"console.log",
+			"get",
+			"wrapFunc",
+			"name",
+			"console.log",
+			"FUNC",
+			"priv",
+			"tmp",
+			"constructor",
+			"Body",
+			"generatePixels",
+			"Colide",
+			"var C",
+			"colide",
+			"super",
+			"ion colideLine",
+			"colideLine",
+			"pointsOnPolygon",
+			"points",
+			"colide",
+			"Colision",
+			"vector",
+			"obj1",
+			"pointsOnPolygon",
+			"Body",
+			"- pointsOnPolygon",
+			"- colidePolygon",
+			"- colideCircleLine",
+			"@name - colideLine",
+			"@name",
+			"*",
+			"@name"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -590,6 +653,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"colide_circ_on_any",
+			"colide_pol_on_any",
+			"colideCxAny",
+			"Effect",
 			"  ",
 			"lfs_t",
 			"lfs_error",
@@ -605,7 +672,7 @@
 			"SEC_SIZE",
 			"getVar"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -614,23 +681,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "game.js",
+					"file": "effects/colide.js",
 					"settings":
 					{
-						"buffer_size": 21761,
+						"buffer_size": 7550,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5417,
-								5417
+								48,
+								48
 							]
 						],
 						"settings":
@@ -640,25 +707,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3248.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "engine.js",
+					"file": "effects/colide/physics.js",
 					"settings":
 					{
-						"buffer_size": 1566,
+						"buffer_size": 12019,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								728,
-								728
+								0,
+								0
 							]
 						],
 						"settings":
@@ -668,25 +735,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 112.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "universe.js",
+					"file": "engine.js",
 					"settings":
 					{
-						"buffer_size": 415,
+						"buffer_size": 2086,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								308,
-								308
+								193,
+								193
 							]
 						],
 						"settings":
@@ -703,18 +770,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "jstools/Class.js",
+					"file": "effects/body.js",
 					"settings":
 					{
-						"buffer_size": 4060,
+						"buffer_size": 4644,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2302,
-								2302
+								2186,
+								2186
 							]
 						],
 						"settings":
@@ -724,7 +791,156 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 456.0,
+						"translation.y": 1092.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "universe.js",
+					"settings":
+					{
+						"buffer_size": 407,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "jstools/Class.js",
+					"settings":
+					{
+						"buffer_size": 5911,
+						"regions":
+						{
+							"bookmark_n":
+							{
+								"flags": 144,
+								"regions":
+								[
+									[
+										847,
+										847
+									]
+								]
+							}
+						},
+						"selection":
+						[
+							[
+								5903,
+								5903
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2555.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "jstools/tools.js",
+					"settings":
+					{
+						"buffer_size": 5834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3818,
+								3818
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2036.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "effects/colide/sylvester.js",
+					"settings":
+					{
+						"buffer_size": 252,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "effects/space.js",
+					"settings":
+					{
+						"buffer_size": 3625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3026,
+								3026
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1434.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -792,6 +1008,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 234.0,
+	"side_bar_width": 178.0,
 	"status_bar_visible": true
 }

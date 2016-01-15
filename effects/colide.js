@@ -1,5 +1,6 @@
 
-require('body.js')
+require('../universe.js')
+require('./body.js')
 
 // For the math support
 require('./colide/sylvester.js')
@@ -7,12 +8,14 @@ require('./colide/sylvester.js')
 // Base functions for colision calculations:
 var physics = require('./colide/physics.js')
 
-Colide = Body.extend({
+Colide = Body.extend(new function(){
 
   // Used to store vectorized data:
-  _colide : {},
+  this._colide = {}
 
-  init : function() {
+  this.init = function(body) {
+    this.super(body)
+
     // Save pos as a vector:
     this._colide.pos = $V([this.X(), this.Y()]).to3D()
 
@@ -22,14 +25,65 @@ Colide = Body.extend({
       this.apply(Colide.Polygon)
     else
       throw "Body should be a circle or a polygon!"
-  },
+  }
 
   // A vector
-  mov : null,
-  Mov : function(mov_vec) {
+  this.mov = null;
+  this.Mov = function(mov_vec) {
     mov = mov_vec
     this._colide.mov = $V(mov_vec).to3D()
     this._colide.trajectory = $L(this._colide.pos, this._colide.mov)
+  }
+
+  this.colide = function(obj, mov) {
+    if(!mov instanceof Array ||
+        mov.length < 2 ||
+        typeof mov[0] != 'number' ||
+        typeof mov[1] != 'number'
+      )
+      throw "mov should be a tuple: [#, #]"
+
+    if( obj.instanceof(Colide.Polygon) )
+      return colideOnPolygon.call(this, obj, mov)
+    if( obj.instanceof(Colide.Circle) )
+      return colideOnCircle.call(this, obj, mov)
+    if( obj.instanceof(Colide) )
+      return colideOnCircle.call(this, obj, mov, true)
+
+    return false;
+  }
+
+  // Private function
+  function colideOnCircle(circ, mov, noRadius) {
+    var V = $V( mov )
+    var M = $L( this._colide.pos, V )
+    return physics._colideCircle(0, noRadius ? 0 : circ.R(), this._colide.pos, circ._colide.pos, V, M)
+  }
+
+  // Private function
+  function colideOnPolygon(pol, mov) {
+    var colision = new physics.Colision()
+
+    var P = this._colide.pos
+    var r = 0
+    var V = $V(mov)
+    var M = $L(P, V)
+
+    // Colide this circle with each edge of the polygon:
+    for(var edge of pol._colide.edges) {
+      /* @params: P = center of the circle
+       *          r = circle radius
+       *          V = mov vec
+       *          M = move line
+       *          line = [ $V(vertex[0]), $V(vertex[1]) ]
+       *          L = @L( [vertex[0], vertex[1] ) */
+
+      var line = edge.points
+      var L = edge.line
+      colision.update( physics._colideCircleLine(P, r, V, M, line, L) )
+    }
+
+    return colision.valid ? colision : false
   }
 })
 
@@ -56,42 +110,33 @@ Colide.Circle = Colide.extend(new function(){
    *   - false otherwise
    */
   this.colide = function(obj, mov) {
+    if(!mov instanceof Array ||
+        mov.length < 2 ||
+        typeof mov[0] != 'number' ||
+        typeof mov[1] != 'number'
+      )
+      throw "mov should be a tuple: [#, #]"
+
     if( obj.instanceof(Colide.Circle) )
       return colideOnCircle.call(this, obj, mov)
     if( obj.instanceof(Colide.Polygon) )
       return colideOnPolygon.call(this, obj, mov)
+    if( obj.instanceof(Colide))
+      return colideOnPolygon.call(this, obj, mov, true)
 
     return false;
   }
 
   // Private function
-  function colideOnCircle(circ, mov) {
-    if(!circ.instanceof(Colide.Circle)) return false;
-
-    if(!mov instanceof Array ||
-        mov.length < 2 ||
-        typeof mov[0] != 'number' ||
-        typeof mov[1] != 'number'
-      )
-      throw "mov should be a tuple: [#, #]"
-
+  function colideOnCircle(circ, mov, noRadius) {
     var V = $V( mov )
     var M = $L( this._colide.pos, V )
 
-    return physics._colideCircle(this.R(), circ.R(), this._colide.pos, circ._colide.pos, V, M) {
+    return physics._colideCircle(this.R(), noRadius ? 0 : circ.R(), this._colide.pos, circ._colide.pos, V, M)
   }
 
   // Private function
   function colideOnPolygon(pol, mov) {
-    if(!pol.instanceof(Colide.Polygon)) return false;
-
-    if(!mov instanceof Array ||
-        mov.length < 2 ||
-        typeof mov[0] != 'number' ||
-        typeof mov[1] != 'number'
-      )
-      throw "mov should be a tuple: [#, #]"
-
     var colision = new physics.Colision()
 
     var P = this._colide.pos
@@ -117,6 +162,14 @@ Colide.Circle = Colide.extend(new function(){
   }
 })
 
+function teste() {
+  var line = new Effect
+  line.apply(Body, [ [0,0],[0,1] ])
+  line.apply(Colide)
+
+  console.log('line: ', line)
+}
+
 Colide.Polygon = Colide.extend(new function() {
 
   this.init = function() {
@@ -129,8 +182,12 @@ Colide.Polygon = Colide.extend(new function() {
     
     function Body(body) {
 
+      console.log('Antes')
       // Call the old body:
-      sBody.call(this, body)
+      var ret = sBody.call(this, body)
+      console.log('Depois')
+
+      if(arguments.length == 0) return ret;
 
       this._colide.edges = []
       this._colide.nodes = []
@@ -150,6 +207,8 @@ Colide.Polygon = Colide.extend(new function() {
 
         last = body[i]
       }
+
+      return ret;
     }
   }
 
@@ -172,18 +231,6 @@ Colide.Polygon = Colide.extend(new function() {
    *   - false otherwise
    */
   this.colide = function(obj, mov) {
-    if( obj.instanceof(Colide.Polygon) )
-      return colideOnPolygon.call(this, obj, mov)
-    if( obj.instanceof(Colide.Circle) )
-      return colideOnCircle.call(this, obj, mov)
-
-    return false
-  }
-
-  // Private function
-  function colideOnPolygon(pol, mov) {
-    if(!pol.instanceof(Colide.Polygon)) return false;
-
     if(!mov instanceof Array ||
         mov.length < 2 ||
         typeof mov[0] != 'number' ||
@@ -191,6 +238,18 @@ Colide.Polygon = Colide.extend(new function() {
       )
       throw "mov should be a tuple: [#, #]"
 
+    if( obj.instanceof(Colide.Polygon) )
+      return colideOnPolygon.call(this, obj, mov)
+    if( obj.instanceof(Colide.Circle) )
+      return colideOnCircle.call(this, obj, mov)
+    if( obj.instanceof(Colide) )
+      return colideOnCircle.call(this, obj, mov, true)
+
+    return false
+  }
+
+  // Private function
+  function colideOnPolygon(pol, mov) {
     var colision = new physics.Colision()
 
     var V0 = $V( mov )
@@ -230,20 +289,11 @@ Colide.Polygon = Colide.extend(new function() {
   }
 
   // Private function
-  function colideOnCircle(circ, mov) {
-    if(!circ.instanceof(Colide.Circle)) return false;
-
-    if(!mov instanceof Array ||
-        mov.length < 2 ||
-        typeof mov[0] != 'number' ||
-        typeof mov[1] != 'number'
-      )
-      throw "mov should be a tuple: [#, #]"
-
+  function colideOnCircle(circ, mov, noRadius) {
     var colision = new physics.Colision()
 
     var P = circ._colide.pos
-    var r = circ.R()
+    var r = noRadius ? 0 : circ.R()
     var V = $V(mov).x( -1 )
     // V is inverted because _colideCircleLine was made
     // to colide circles on lines, not the opposite
@@ -272,9 +322,7 @@ Colide.Polygon = Colide.extend(new function() {
 __TESTE__ = true
 if(__TESTE__) {
 
-  var pol = new Colide.Polygon()
-
-  console.log()
+  teste()
 }
 
 

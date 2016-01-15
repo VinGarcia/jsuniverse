@@ -1,6 +1,6 @@
 
 tools = require('./jstools/tools.js')
-Universe = require('./universe.js').Universe
+require('./universe.js').Universe
 
 // Build the Universe:
 Game = require('./game.js').Game
@@ -11,8 +11,8 @@ Universe.new (
     .apply(Alive, 10, 1)
     // .apply(Space, 2, 3)
     .apply(Space, 4, 4)
-    .apply(Body, 3)
-    // .apply(Body, [[1.5,1.5],[1.5,-1.5],[-1.5,-1.5], [-1.5,1.5]])
+    // .apply(Body, 3)
+    .apply(Body, [[1.5,1.5],[1.5,-1.5],[-1.5,-1.5], [-1.5,1.5]])
     // .apply(Body, [[1,1],[1,-2],[-2,1], [-2,-2]])
     .apply(AI, F2())
 )

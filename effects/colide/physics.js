@@ -12,7 +12,7 @@ require('./sylvester.js')
  *
  *   - colideLine (point on line)
  *
- *   - colideCircle (circle on point)
+ *   - colideCircle (circle on circle)
  * 
  */
 
@@ -355,7 +355,7 @@ var Colision = Class.extend({
     this.vector = vector
 
     if(vector)
-      this.hide(this, 'mod', { 'value': vector.modulus() })
+      this.hide(this, 'mod', vector.modulus() )
 
     // The normal unitary vector at the colision point.
     this.normal = normal
@@ -363,8 +363,7 @@ var Colision = Class.extend({
     // Set the constructor name:
     this.__proto__.constructor = arguments.callee
 
-    this.valid = true
-    this.hide(this, 'valid')
+    this.hide(this, 'valid', true)
   },
 
   _copy : function(col) {
@@ -372,9 +371,9 @@ var Colision = Class.extend({
     this.vector = col.vector
     this.normal = col.normal
     this.mod = col.mod
-    this.hide(this, 'mod', { 'value': col.mod })
+    this.hide(this, 'mod', col.mod)
     this.valid = col.valid
-    this.hide(this, 'valid', { 'value': col.valid })
+    this.hide(this, 'valid', col.valid)
   },
 
   update : function(col) {

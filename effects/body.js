@@ -21,8 +21,16 @@ Body = Space.extend(new function() {
   // Note: x#,y# coordinates are relative to the center of the object.
   //       thus negative values are allowed.
   this.init = function(body) {
-    // If no body was defined make it a circle with r=0
-    if(!body) body = 0
+    // If there is no body do nothing:
+    if(!body) return
+
+    if(typeof body == 'number') Body.Circle.call(this, body)
+    else Body.Polygon.call(this, body)
+  }
+
+  this.reinit = function(body) {
+    // If there is no body do nothing:
+    if(!body) return
 
     if(typeof body == 'number') Body.Circle.call(this, body)
     else Body.Polygon.call(this, body)
@@ -77,6 +85,10 @@ Body.Circle = Body.extend({
  * @name - Body Polygon
  */
 Body.Polygon = Body.extend({
+  reinit : function(body) {
+    this.Body(body)
+  },
+
   init : function(body) {
     // Two lists of points (x,y) in space:
     // The center of the body is set at (0,0)
@@ -97,11 +109,13 @@ Body.Polygon = Body.extend({
       if(arguments.length == 0)
         return this.body
 
+      console.log('before:', body)
       _body = body_check(body)
       _pixels = this.generatePixels(_body)
 
       // Update public instances:
       this.body = _body.copy()
+      console.log('after:', this.body)
       this.pixels = _pixels.copy()
       return this
     }

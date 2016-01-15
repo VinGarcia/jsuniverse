@@ -1,5 +1,5 @@
 
-exports.Universe = {
+Universe = {
   'objs' : [],
   'new' : function(obj) {
     this.objs.push(obj)
