@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"check",
+				"checkSuper"
+			],
+			[
+				"sylve",
+				"sylvester_addr"
+			],
+			[
+				"run",
+				"run_init"
+			],
+			[
+				"insta",
+				"instanceOf"
+			],
+			[
+				"colide",
+				"colideOnCircle"
+			],
+			[
+				"circle",
+				"circleColideWith"
+			],
+			[
 				"Cir",
 				"circleColideWith"
 			],
@@ -192,10 +216,34 @@
 	"buffers":
 	[
 		{
-			"file": "game.js",
+			"file": "effects/body.js",
 			"settings":
 			{
-				"buffer_size": 21761,
+				"buffer_size": 4917,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/colide.js",
+			"settings":
+			{
+				"buffer_size": 16273,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/colide/physics.js",
+			"settings":
+			{
+				"buffer_size": 10688,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/colide/colision.js",
+			"settings":
+			{
+				"buffer_size": 1446,
 				"line_ending": "Unix"
 			}
 		},
@@ -203,15 +251,71 @@
 			"file": "engine.js",
 			"settings":
 			{
-				"buffer_size": 1566,
+				"buffer_size": 1799,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "universe.js",
+			"file": "jstools/copy.js",
 			"settings":
 			{
-				"buffer_size": 415,
+				"buffer_size": 2369,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/copy.test.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/Makefile",
+			"settings":
+			{
+				"buffer_size": 101,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/tools.js",
+			"settings":
+			{
+				"buffer_size": 4876,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/hide.js",
+			"settings":
+			{
+				"buffer_size": 240,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/except.js",
+			"settings":
+			{
+				"buffer_size": 265,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/effect.js",
+			"settings":
+			{
+				"buffer_size": 145,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "effects/space.js",
+			"settings":
+			{
+				"buffer_size": 3625,
 				"line_ending": "Unix"
 			}
 		},
@@ -219,7 +323,15 @@
 			"file": "jstools/Class.js",
 			"settings":
 			{
-				"buffer_size": 4060,
+				"buffer_size": 9215,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jstools/test/class.js",
+			"settings":
+			{
+				"buffer_size": 5532,
 				"line_ending": "Unix"
 			}
 		}
@@ -227,7 +339,7 @@
 	"build_system": "Packages/User/make_run.sublime-build",
 	"command_palette":
 	{
-		"height": 316.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -241,6 +353,10 @@
 			[
 				":",
 				":w - Save"
+			],
+			[
+				":G",
+				"Git: Gitk"
 			],
 			[
 				":pyth",
@@ -308,6 +424,29 @@
 	},
 	"file_history":
 	[
+		"/mnt/d/Fox/serios/jogos/effects/colide/sylvester.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/sylvester/sylvester.src.js",
+		"/mnt/d/Fox/serios/jogos/effects/tests/colide.js",
+		"/mnt/d/Fox/serios/jogos/universe.js",
+		"/mnt/d/Fox/serios/jogos/game.js",
+		"/mnt/d/Fox/serios/jogos/effects/alive.js",
+		"/mnt/d/Fox/serios/jogos/effects/space.js",
+		"/mnt/d/Fox/serios/jogos/effects/ai.js",
+		"/mnt/d/Fox/serios/jogos/effects/time.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/sylvester/sylvester.js",
+		"/mnt/d/Fox/serios/jogos/jstools/Class.js",
+		"/mnt/d/Fox/serios/jogos/jstools/class.test.js",
+		"/mnt/d/Fox/serios/jogos/jstools/test.js",
+		"/mnt/d/Fox/serios/jogos/sylvester.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/colide.js",
+		"/mnt/d/Fox/serios/jogos/jstools/copy.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/colision.js",
+		"/mnt/d/Fox/serios/jogos/effects/colide/physics.js",
+		"/mnt/d/Fox/serios/jogos/effects/colision.js",
+		"/mnt/d/Fox/serios/jogos/effects/body.js",
+		"/mnt/d/Fox/serios/jogos/effects/effect.js",
+		"/mnt/d/Fox/serios/jogos/alive.js",
 		"/home/fox.config/fox/serios/luar/lfs/LFS.sublime-project",
 		"/mnt/d/Fox/serios/bymoto/planejamento.txt",
 		"/home/fox.config/.cache/.fr-YF3FQJ/whatsapp-desktop/PKGBUILD",
@@ -412,30 +551,7 @@
 		"/mnt/luar/garcia/workspace/LFS - Luar File System/exemplos_com_videos_em_python/vplayer.py",
 		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/.talkin.sublime-project",
 		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/citotoxidade-INMETRO/artigo-CTTX/r-no-flux-2014-04-14-vingarcia.tex",
-		"/mnt/d/Fox/temp/temp.R",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/citotoxidade-INMETRO/artigo-CTTX/r-no-flux-2014-04-14-vingarcia.txt",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/template_luar.tex",
-		"/mnt/d/Fox/serios/luar/svn/flux20/src/trunk/Flux2/src/br/ufmg/dcc/luar/flux/service/rserve/RCall2.java",
-		"/mnt/d/Fox/serios/luar/svn/flux20/src/trunk/Flux2/src/br/ufmg/dcc/luar/flux/service/rserve/RStat2.java",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/citotoxidade-INMETRO/citotoxidade/scriptR/graficoR.R",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/Trabalho OJB/Relatorios OJB/Relatorio atividades 2013-2 para o OJB/LaTeX do Relatorio/relatorio.tex",
-		"/mnt/d/Fox/temp/fabrica_de_slides/template_luar.tex",
-		"/mnt/d/Fox/temp/graficoR.R",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/flux/fluxdev/fluxdev/doc/r_no_flux/documentacao_r.tex",
-		"/home/fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/resenha-desonra.tex",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/mnt/d/Fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/resenha-desonra.tex",
-		"/home/fox/serios/ufmg/Psicanálise/Trabalho 1 - Filme Desonra/abnt-classe-doc.tex",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/flux/fluxdev/fluxdev/doc/r_no_flux/Makefile",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-		"/mnt/d/Fox/.config/sublime-text-2/Packages/User/make_run.sublime-build",
-		"/home/garcia/workspace/citotoxidade-INMETRO/citotoxidade/scriptR/graficoR.R",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/Makefile",
-		"/run/user/1000/gvfs/sftp:host=150.164.3.39/home/garcia/workspace/apresentacoes/fabrica_de_slides/sftp",
-		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/vocabulario.talk",
-		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/padrao.cpp",
-		"/home/conf. and builds/workspace/ufmg/poc/talkin/codigo/Makefile"
+		"/mnt/d/Fox/temp/temp.R"
 	],
 	"find":
 	{
@@ -455,134 +571,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"obj",
-			"minCol",
-			"colideCir",
-			"colideCircle",
-			"hide",
-			"define",
-			"Properties",
-			"defineProperties",
-			"apply",
-			"prop",
-			"_line",
-			"line",
-			"this.pixels",
-			"line",
-			"_line",
-			"V",
-			"r",
-			"colideCircle",
-			"colideLine",
-			"coli",
-			"line",
-			"rVec",
-			"ortogonal",
-			"dist",
-			"line",
-			"vertex",
-			"colideCir",
-			"para",
-			"isAntiP",
-			"subs",
+			"func",
+			" ",
+			"OnPo",
+			"P",
+			"_colideCircleLine",
+			"edge",
+			"i",
+			"overwrite('x",
 			"console.log",
-			"pixels",
-			"M",
-			"p",
-			"V",
-			"vec",
-			"L",
-			"vec",
+			"should colide point on line",
+			"it",
+			"pos",
+			"sBody",
+			"\n      ",
+			"overwrite",
+			"wrapSuper",
+			"y",
+			"x",
+			"round",
+			"normal",
+			"location",
+			"vector",
+			"Colide",
+			"console.log",
+			"edges =",
 			"line",
-			"Universe.update",
-			"pixels",
-			"console",
-			"generate",
-			"Draw",
+			"0",
+			"console.log",
+			"_colideLine",
+			"console.log",
+			"V",
+			"_colideCircleLine",
+			"console.log",
+			"1",
+			"setElements:",
+			"elements",
+			"create",
+			"\n        ",
+			"pos",
+			"0",
+			"console.log",
+			"Y",
+			"X",
+			"Xn",
+			"console.lo",
+			"count",
+			"_superFuncs",
+			"_super",
+			"_superFuncs",
+			"uncs",
+			"count",
+			"wrapSuper",
+			"var hide",
+			"wrapSuper",
+			"Super",
+			"V",
+			"L",
+			"this.func",
+			"hide",
+			"file",
+			"this.colide",
+			"isParallelTo",
+			"hide",
+			"this.hide",
+			"ion hide",
+			"physics.Colision",
+			"ion Colision",
+			"Colision",
+			"ppos",
+			"copy()",
+			"_pixels.co",
+			"if(null",
+			"copy",
+			"body.copy",
+			"copy()",
+			"tools",
+			"line2",
+			"edges",
+			"line1",
+			"line",
+			"nodes",
+			"func",
+			"fnTest",
+			"wrapSuper",
+			"fnTest",
+			"wrapSuper",
+			"var bkp",
+			"prop",
+			"wrapSuper",
+			"name",
+			"constructor",
+			"constu",
+			"before",
+			"splice",
 			"body",
-			"this.body",
-			"nPoints",
-			"   }",
-			"this",
-			"Space",
-			"w",
-			"Universe.Space",
-			"Space",
-			"	",
-			"  'triggers' : [],\n  'add' : function(trigger) {\n    this.triggers.push(trigger)\n    return this\n  },\n\n  'update' : function() {\n    for(var i in this.triggers)\n      this.triggers[i].apply(this)\n  }",
-			"aux",
-			"popenAndCall",
-			"cancelButton",
-			"ref",
-			"popup.dismiss",
-			"insert_next",
-			"startInsertion",
-			"total_videos",
-			"id",
-			"file",
-			"files",
-			"files_to_insert",
-			"files",
-			"print",
-			"parseFiles_rec",
-			"fileList",
-			"base",
-			"Inserting",
-			"data",
-			"insert",
-			"_GB",
-			"_expireDate",
-			"expire",
-			"MAX",
-			"getSize",
-			"remove",
-			"true",
-			"dataFiles",
-			"lfs_interface",
-			"lfsInterface",
-			"update",
-			"data",
-			"self.dataFile",
-			"dataFile",
-			"sulfix",
-			"self.dataFile",
-			"fileList",
-			"self.fileList",
-			"fileList",
-			"self.dataFile",
-			"dataFile",
-			"self.datafile",
-			"self",
-			"file",
-			"a",
-			"bin",
-			"lfs",
-			"grid",
-			"videos",
-			"lab",
-			"desc",
-			"window",
-			"scroll",
-			"#Svn",
-			"window",
-			"=",
-			"window",
-			"Button",
-			"parent",
-			"20",
-			"passou",
-			"lfs_write",
-			"Formatting",
-			"insertHeaderEntry",
-			"callback",
-			"fopen",
-			"sec_siz",
-			"ferror",
-			"pvi",
-			"ps",
-			"report",
-			"lfs_report",
-			"listFiles"
+			"console.log",
+			"teste()",
+			"tools",
+			"Body",
+			"colideOnPolygon",
+			"wrapInit",
+			"test =",
+			"Class",
+			"i",
+			"test =",
+			"ld",
+			"test =",
+			"._",
+			"hide",
+			" init.",
+			"proto",
+			"_super.init",
+			"initializing",
+			"proto",
+			"Class, ",
+			"initSuper",
+			"Class",
+			"Super",
+			"_super",
+			"Class",
+			"arguments",
+			"initSuper",
+			"_super",
+			"_super.ini",
+			"id_count",
+			"prototype",
+			"_super",
+			"prop"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -590,6 +706,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"_super",
+			"colide_circ_on_any",
+			"colide_pol_on_any",
+			"colideCxAny",
+			"Effect",
 			"  ",
 			"lfs_t",
 			"lfs_error",
@@ -605,7 +726,7 @@
 			"SEC_SIZE",
 			"getVar"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -614,79 +735,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 14,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "game.js",
+					"file": "effects/body.js",
 					"settings":
 					{
-						"buffer_size": 21761,
+						"buffer_size": 4917,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5417,
-								5417
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3248.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "engine.js",
-					"settings":
-					{
-						"buffer_size": 1566,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								728,
-								728
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 112.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "universe.js",
-					"settings":
-					{
-						"buffer_size": 415,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								308,
-								308
+								337,
+								337
 							]
 						],
 						"settings":
@@ -702,19 +767,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "jstools/Class.js",
+					"buffer": 1,
+					"file": "effects/colide.js",
 					"settings":
 					{
-						"buffer_size": 4060,
+						"buffer_size": 16273,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2302,
-								2302
+								5253,
+								5253
 							]
 						],
 						"settings":
@@ -724,7 +789,378 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 456.0,
+						"translation.y": 2492.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "effects/colide/physics.js",
+					"settings":
+					{
+						"buffer_size": 10688,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2775,
+								2775
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1281.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "effects/colide/colision.js",
+					"settings":
+					{
+						"buffer_size": 1446,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								921,
+								921
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 42.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "engine.js",
+					"settings":
+					{
+						"buffer_size": 1799,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								393,
+								393
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "jstools/copy.js",
+					"settings":
+					{
+						"buffer_size": 2369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1073,
+								1073
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 49.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "jstools/copy.test.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "jstools/Makefile",
+					"settings":
+					{
+						"buffer_size": 101,
+						"regions":
+						{
+							"bookmark_a":
+							{
+								"flags": 144,
+								"regions":
+								[
+									[
+										101,
+										101
+									]
+								]
+							}
+						},
+						"selection":
+						[
+							[
+								55,
+								55
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "jstools/tools.js",
+					"settings":
+					{
+						"buffer_size": 4876,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4615,
+								4615
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2527.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "jstools/hide.js",
+					"settings":
+					{
+						"buffer_size": 240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								194,
+								194
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "jstools/except.js",
+					"settings":
+					{
+						"buffer_size": 265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								86,
+								86
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "effects/effect.js",
+					"settings":
+					{
+						"buffer_size": 145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								106,
+								106
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "effects/space.js",
+					"settings":
+					{
+						"buffer_size": 3625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3609,
+								3609
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1547.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "jstools/Class.js",
+					"settings":
+					{
+						"buffer_size": 9215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8120,
+								8120
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3388.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "jstools/test/class.js",
+					"settings":
+					{
+						"buffer_size": 5532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4698,
+								4698
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2233.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -792,6 +1228,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 234.0,
+	"side_bar_width": 178.0,
 	"status_bar_visible": true
 }

@@ -1,7 +1,12 @@
 
-// This file is just an alias for 'sylvester/sylvester.js'
-// to use this file you can use require('./sylvester.js')
-// instead of $include
-var __ROOT__ = '../..'
-require(__ROOT__ + '/jstools/tools.js').include('./sylvester/sylvester.src.js')
+
+var project_root = __dirname + '/../..'
+
+var tools_addr = project_root + '/jstools/tools.js'
+
+var sylvester_addr = __dirname + '/sylvester/sylvester.src.js'
+
+require(tools_addr).include(sylvester_addr)
+
+
 

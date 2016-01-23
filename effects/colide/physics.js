@@ -1,5 +1,6 @@
 // For the math support
 require('./sylvester.js')
+require('./colision.js')
 
 /*
  * @functions on this file:
@@ -12,7 +13,7 @@ require('./sylvester.js')
  *
  *   - colideLine (point on line)
  *
- *   - colideCircle (circle on point)
+ *   - colideCircle (circle on circle)
  * 
  */
 
@@ -334,67 +335,6 @@ function _colideCircle(r1, r2, P1, P2, V, M) {
   // If it really colides:
   return new Colision(colisionPoint, colisionVec, normal)
 }
-
-/* * * * * Auxiliar Class: * * * * */
-
-require('../../jstools/Class.js')
-
-// Used to record colision data
-var Colision = Class.extend({
-  location : null,
-  vector : null,
-  normal : null,
-
-  init : function Colision(location, vector, normal) {
-    // Local where the two objects touched
-    // (referent to the extremity of the object)
-    this.location = location
-
-    // Movement vector that describes the path the object did.
-    // (referent to the center of the object)
-    this.vector = vector
-
-    if(vector)
-      this.hide(this, 'mod', { 'value': vector.modulus() })
-
-    // The normal unitary vector at the colision point.
-    this.normal = normal
-
-    // Set the constructor name:
-    this.__proto__.constructor = arguments.callee
-
-    this.valid = true
-    this.hide(this, 'valid')
-  },
-
-  _copy : function(col) {
-    this.location = col.location
-    this.vector = col.vector
-    this.normal = col.normal
-    this.mod = col.mod
-    this.hide(this, 'mod', { 'value': col.mod })
-    this.valid = col.valid
-    this.hide(this, 'valid', { 'value': col.valid })
-  },
-
-  update : function(col) {
-      if(!col || !col.vector) return
-      if(!this.vector || col.mod < this.mod)
-        this._copy(col)
-  },
-
-  // If A moved and colided on B
-  // This function will return as if B
-  // moved and colided on A.
-  invert : function() {
-    if(!this.valid) return new Colision()
-
-    var normal = this.normal.x( -1 )
-    var vector = this.vector.x( -1 )
-    var location = this.location.add( vector )
-    return new Colision(location, vector, normal)
-  }
-})
 
 /* * * * * The test suit lay below * * * * */
 

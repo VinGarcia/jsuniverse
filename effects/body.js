@@ -1,5 +1,6 @@
 
 require('./space.js')
+var copy = require('../jstools/copy.js').copy
 
 /*
  * @name - Body
@@ -21,8 +22,16 @@ Body = Space.extend(new function() {
   // Note: x#,y# coordinates are relative to the center of the object.
   //       thus negative values are allowed.
   this.init = function(body) {
-    // If no body was defined make it a circle with r=0
-    if(!body) body = 0
+    // If there is no body do nothing:
+    if(!body) return
+
+    if(typeof body == 'number') Body.Circle.call(this, body)
+    else Body.Polygon.call(this, body)
+  }
+
+  this.reinit = function(body) {
+    // If there is no body do nothing:
+    if(!body) return
 
     if(typeof body == 'number') Body.Circle.call(this, body)
     else Body.Polygon.call(this, body)
@@ -37,17 +46,20 @@ Body.Circle = Body.extend({
     if(!radius || radius < 0) radius = 0
     var _r = radius
     var _pixels = this.generatePixels(_r)
-    this.pixels = _pixels.copy()
+    this.pixels = copy(_pixels)
 
     // Declare getters and setters:
     this.Pixels = function() { return this.pixels }
     this.R = function(r) {
-      if(radius && radius >= 0) {
-        _r = radius;
-        _pixels = this.generatePixels(_r)
-        // Update pixels public instance:
-        this.pixels = _pixels.copy()
-      } else return _r;
+      if(!r) return _r
+      if(!r >= 0) r = 0
+
+      _r = r;
+      _pixels = this.generatePixels(_r)
+      // Update pixels public instance:
+      this.pixels = copy(_pixels)
+        
+      return _r;
     }
   },
 
@@ -77,7 +89,12 @@ Body.Circle = Body.extend({
  * @name - Body Polygon
  */
 Body.Polygon = Body.extend({
+  reinit : function(body) {
+    this.Body(body)
+  },
+
   init : function(body) {
+
     // Two lists of points (x,y) in space:
     // The center of the body is set at (0,0)
     // Negative points are allowed
@@ -85,11 +102,11 @@ Body.Polygon = Body.extend({
 
     // Check if body is in a valid format:
     _body = body_check(body)
-    this.body = _body.copy()
+    this.body = copy(_body)
 
     // Generate the pixel representation of the object:
     var _pixels = this.generatePixels(_body)
-    this.pixels = _pixels.copy()
+    this.pixels = copy(_pixels)
 
     // Declare getters and setters:
     this.Pixels = function() { return this.pixels }
@@ -101,8 +118,8 @@ Body.Polygon = Body.extend({
       _pixels = this.generatePixels(_body)
 
       // Update public instances:
-      this.body = _body.copy()
-      this.pixels = _pixels.copy()
+      this.body = copy(_body)
+      this.pixels = copy(_pixels)
       return this
     }
 
@@ -125,7 +142,7 @@ Body.Polygon = Body.extend({
         _body = [[0,0]]
       else
         // Copy it so no one can alter it from outside:
-        _body = body.copy()
+        _body = copy(body)
 
       return _body
     }
@@ -134,7 +151,7 @@ Body.Polygon = Body.extend({
   generatePixels : function(body) {
     // List of (x,y) coordinates:
     var pixels = []
-    var points = body.splice(1)
+    var points = body.slice(1)
 
     // The last point must be same as the first (to form a polygon):
     points.push(body[0])

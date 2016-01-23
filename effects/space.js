@@ -1,5 +1,6 @@
 
 require('./effect.js')
+require('../jstools/except.js')
 
 Space = Effect.extend(new function() {
   // Set the universe size:
@@ -134,21 +135,29 @@ Space = Effect.extend(new function() {
     this.y = y
 
     this.X = function(x) {
-      if(arguments.length===0) return this.x
+      if(x == null) return this.x
+      if(typeof x != 'number')
+        throw Except("Bad parameter!")
+          .msg("this.X expects a number!")
 
-      if(!(x >= 0)) x = 0
+      if(x < 0) x = 0
       if(x > _Space.w-1) x = _Space.w-1
 
       this.x = x
+      return x
     }
 
     this.Y = function(y) {
-      if(arguments.length===0) return this.y
+      if(y == null) return this.y
+      if(typeof y != 'number')
+        throw Except("Bad parameter!")
+          .msg("this.Y expects a number!")
 
-      if(!(y >= 0)) y = 0
+      if(y < 0) y = 0
       if(y > _Space.h-1) y = _Space.h-1
 
       this.y = y
+      return y
     }
   }
 })
