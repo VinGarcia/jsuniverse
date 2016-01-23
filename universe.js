@@ -1,6 +1,7 @@
 
-exports.Universe = {
+Universe = {
   'objs' : [],
+
   'new' : function(obj) {
     this.objs.push(obj)
     return this
@@ -22,4 +23,7 @@ exports.Universe = {
     setInterval(update, 500)
   }
 }
+
+
+
 

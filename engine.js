@@ -1,9 +1,9 @@
 
-tools = require('./jstools/tools.js')
-Universe = require('./universe.js').Universe
+require('./jstools/tools.js')
+require('./universe.js')
 
 // Build the Universe:
-Game = require('./game.js').Game
+require('./game.js')
 
 var person = new Class()
 Universe.new (
@@ -11,10 +11,10 @@ Universe.new (
     .apply(Alive, 10, 1)
     // .apply(Space, 2, 3)
     .apply(Space, 4, 4)
-    .apply(Body, 3)
+    // .apply(Body, 3)
     // .apply(Body, [[1.5,1.5],[1.5,-1.5],[-1.5,-1.5], [-1.5,1.5]])
-    // .apply(Body, [[1,1],[1,-2],[-2,1], [-2,-2]])
-    .apply(AI, F2())
+    .apply(Body, [[1,1],[1,-2],[-2,1],[-2,-2]])
+    .apply(AI, movement)
 )
 
 //console.log(person.pixels)
@@ -50,7 +50,24 @@ function F() {
   }
 }
 
-function F2() {
+counter = 0
+function movement() {
+  var num = counter%10
+  var x = this.X()
+  var y = this.Y()
+  if(num==0)
+    this.Y(y-1)
+  else if(num > 0 && num < 5)
+    this.X(x+1)
+  else if(num == 5)
+    this.Y(y+1)
+  else if(num > 5)
+    this.X(x-1)
+  counter++
+}
+
+/*
+function movement() {
   var counter = 0;
   return function() {
     var num = counter%10
@@ -66,7 +83,7 @@ function F2() {
       this.X(x-1)
     counter++
   }
-}
+} */
 
 
 
