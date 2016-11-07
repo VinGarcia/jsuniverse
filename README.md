@@ -1,10 +1,10 @@
 
-![jsUniverse](icon.jpg)
+![JSUniverse](icon.jpg)
 
-jsUniverse is generic game engine made to be flexible and extensible.
+JSUniverse is generic game engine made to be flexible and extensible.
 The base model is really simple and is extensible by adding new Objects and new Effects in a straightforward way.
 
-# Model
+## Model
 
 Everything is either an `Object` or an `Effect`.
 
@@ -26,13 +26,13 @@ There this new Object will be subject to all effects that were registered on it.
 
 To register an effect all you need to do is `require()` it.
 
-# Features
+## Features
 
 - Custom Body definition, meaning you can define a format for you object in terms of Polygon vertexes or a Circle radius.
 - Colision calculation (not 100% working, but the hard part is done).
 - Built-in classes for describing characters and objects behaviors in the universe.
 
-# TODO
+## TODO
 
 - Fix some colision problems
 - Make a toy-game to test the engine.
