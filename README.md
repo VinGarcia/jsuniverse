@@ -18,9 +18,12 @@ For example a Dog class should inherit from:
 - `Alive`, since it has HP, and may die.
 - `AI`, since you probably want it to move. And AI is a child class of Time, so it will be updated on every cycle of clock.
 
-The code snippet below exemplifies this:
+The code snippet below exemplify how easy it is:
 
 ```Javascript
+require('./effects/alive.js')
+/* ... the other effects should also be required here ... */
+
 var dog = new Class()
 Universe.new (
   dog
