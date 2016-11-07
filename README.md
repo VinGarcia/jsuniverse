@@ -1,7 +1,7 @@
 
 ![JSUniverse](icon.jpg)
 
-JSUniverse is generic game engine made to be flexible and extensible.
+JSUniverse is generic 2D game engine made to be flexible and extensible.
 The base model is really simple and is extensible by adding new Objects and new Effects in a straightforward way.
 
 ## Model
