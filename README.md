@@ -38,7 +38,7 @@ Universe.new (
 Universe.start()
 ```
 
-The reason it is named jsUniverse is because every object and every effect share a single global variable, namely: the Universe.
+The reason it is named JSUniverse is because every object and every effect share a single global variable, namely: the Universe.
 
 When a new `Effect` is declared, e.g. `Space`, it will register itself in the `Universe`, e.g. estabilishing the universe height and width.
 
@@ -50,10 +50,10 @@ To register an effect all you need to do is `require()` it, and it does the job 
 ## Features
 
 - Custom Body definition, meaning you can define a format for you object in terms of Polygon vertexes or a Circle radius.
-- Colision calculation (not 100% working, but the hard part is done).
+- Collision calculation (not 100% working, but the hard part is done).
 - Built-in classes for describing characters and objects behaviors in the universe.
 
 ## TODO
 
-- Fix some colision problems
+- Fix some collision problems
 - Make a toy-game to test the engine.
