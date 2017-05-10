@@ -1,0 +1,3 @@
+[submodule "jstools"]
+	path = jstools
+	url = https://github.com/VinGarcia/jstools.git
