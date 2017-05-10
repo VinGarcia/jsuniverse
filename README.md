@@ -4,6 +4,16 @@
 JSUniverse is generic 2D game engine made to be flexible and extensible.
 The base model is really simple and is extensible by adding new Objects and new Effects in a straightforward way.
 
+## Testing
+
+To quickly run the engine on a sample code use:
+
+```bash
+make
+# or
+node engine.js
+```
+
 ## Model
 
 Everything is either an `Object` or an `Effect`.
