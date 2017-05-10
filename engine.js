@@ -13,7 +13,7 @@ Universe.new (
     .apply(Space, 4, 4)
     // .apply(Body, 3)
     // .apply(Body, [[1.5,1.5],[1.5,-1.5],[-1.5,-1.5], [-1.5,1.5]])
-    .apply(Body, [[1,1],[1,-2],[-2,1],[-2,-2]])
+    .apply(Body, [[1,1],[1,-2],[-2,1]])
     .apply(AI, movement)
 )
 
@@ -25,6 +25,10 @@ person.hp = 1
 Universe.add( Universe.Draw )
 Universe.add( function() { console.log('HP:',person.hp) } )
 Universe.add( function() { console.log('pos:',person.X(), person.Y()) } )
+Universe.add( function() { console.log('\nThis sample shows a simple object on the game') } )
+Universe.add( function() { console.log('It has HP, regenerates, has triangular body and moves as in a rectangle') } )
+Universe.add( function() { console.log('To see the main script open `engine.js`') } )
+Universe.add( function() { console.log('\nPress Ctrl+C to exit') } )
 
 //var a = (new Class).apply(Colide)
 // console.log('colide?', a.colideLine([1,1], [1,1], [[2,2], [3,2]])) // answer: [1, 1 ,0]
