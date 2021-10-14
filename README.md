@@ -4,11 +4,22 @@
 JSUniverse is generic 2D game engine made to be flexible and extensible.
 The base model is really simple and is extensible by adding new Objects and new Effects in a straightforward way.
 
+## Dependencies
+
+This project depends on having `nodejs` installed and optionally `make`.
+
 ## Testing
 
-To quickly run the engine on a sample code use:
+To quickly run the engine on a sample code first download it recursively using:
+
+```
+git clone --recursive https://github.com/VinGarcia/jsuniverse
+```
+
+Then enter the jsuniverse directory and start the demo with `make` or simply `node engine.js`:
 
 ```bash
+cd jsuniverse/
 make
 # or
 node engine.js
